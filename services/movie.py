@@ -21,3 +21,8 @@ def get_movie(
             actor_id__in=actors_ids
         )
     return Movie.objects.all()
+
+
+@property
+def get_movie_by_id(movie_id: int) -> Movie:
+    return Movie.objects.get(id=movie_id)
