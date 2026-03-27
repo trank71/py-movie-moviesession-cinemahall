@@ -10,8 +10,8 @@ def get_movie(
 ) -> QuerySet:
     if genres_ids and actors_ids:
         return Movie.objects.filter(
-            genre_id__in=genres_ids,
-            actor_id__in=actors_ids)
+            genre__id__in=genres_ids,
+            actor__id__in=actors_ids)
     if genres_ids:
         return Movie.objects.filter(
             genre_id__in=genres_ids
