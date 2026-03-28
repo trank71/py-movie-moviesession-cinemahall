@@ -25,4 +25,4 @@ USE_TZ = True
 
 INSTALLED_APPS = [
     "db",
-    ]
+]
