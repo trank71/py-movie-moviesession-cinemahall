@@ -1,4 +1,4 @@
-from _datetime import datetime
+from datetime import datetime
 
 from django.db.models import QuerySet
 
@@ -33,13 +33,13 @@ def get_movie_session_by_id(
 
 def update_movie_session(
         session_id: int,
-        show_time: str = None,
+        show_time: datetime = None,
         movie_id: int = None,
         cinema_hall_id: int = None,
 ) -> MovieSession:
     movie_session = MovieSession.objects.get(id=session_id)
     if show_time:
-        movie_session.show_time = datetime.strptime(show_time, "%Y-%m-%d")
+        movie_session.show_time = show_time
     if movie_id:
         movie_session.movie_id = movie_id
     if cinema_hall_id:
