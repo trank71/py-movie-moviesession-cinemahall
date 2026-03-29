@@ -8,18 +8,14 @@ def get_movies(
         , actors_ids: list[int] = None
 ) -> QuerySet:
     movies = Movie.objects.all()
-    if genres_ids and actors_ids:
-        movies = movies.filter(genres__in=genres_ids).distinct()
-        movies = movies.filter(actors__in=actors_ids).distinct()
-        return movies
     if genres_ids:
-        return movies.filter(
-            genres__in=genres_ids
-        ).distinct()
+        movies = movies.filter(
+            genres__id__in=genres_ids
+        )
     if actors_ids:
-        return movies.filter(
-            actors__in=actors_ids
-        ).distinct()
+        movies = movies.filter(
+            actors__id__in=actors_ids
+        )
     return movies
 
 
